@@ -116,7 +116,12 @@ const { project } = Astro.props;
         {project.images && project.images.length > 0 ? (
           project.images.map((imgUrl: string, index: number) => (
             <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-blue-500/20 group">
-              <img src={imgUrl} alt={`Schermata ${index + 1} del progetto ${project.name}`} width="1280" height="720" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 lightbox-trigger cursor-pointer" />
+              {isVideo ? (
+                <video src={mediaUrl} muted loop playsinline class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 lightbox-trigger cursor-pointer"></video>
+              ) : (
+                <img src={mediaUrl} alt={`Schermata ${index + 1} del progetto ${project.name}`} width="1280" height="720" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 lightbox-trigger cursor-pointer" />
+              )}
+              )}
               {index === 0 && (
                 <>
                   <!-- Overlay per la prima immagine (Copertina) -->
@@ -163,24 +168,43 @@ const { project } = Astro.props;
 
       if (!lightbox || !lightboxImg) return;
 
+      const lightboxVideo = document.getElementById('lightbox-video');
+      
       triggers.forEach(function (trigger) {
         trigger.addEventListener('click', function (e) {
-          // e.currentTarget is the element the listener is attached to
           const el = e.currentTarget;
-          // Ensure it's an HTMLImageElement before using src
-          if (el && el.tagName && el.tagName.toLowerCase() === 'img') {
-            // @ts-ignore - runtime check above ensures safety
-            const imgSrc = el.src;
-            if (imgSrc) {
+          if (!el) return;
+          
+          const isVideo = el.tagName.toLowerCase() === 'video';
+          // @ts-ignore
+          const mediaSrc = el.src || el.currentSrc;
+          
+          if (mediaSrc) {
+            if (isVideo) {
+              lightboxImg.classList.add('hidden');
+              lightboxImg.src = '';
+              lightboxVideo.classList.remove('hidden');
               // @ts-ignore
-              lightboxImg.src = imgSrc;
-              if (typeof lightbox.showModal === 'function') {
-                // @ts-ignore
-                lightbox.showModal();
-              }
-              lightbox.classList.remove('hidden');
-              document.body.style.overflow = 'hidden';
+              lightboxVideo.src = mediaSrc;
+              // @ts-ignore
+              lightboxVideo.play();
+            } else {
+              lightboxVideo.classList.add('hidden');
+              // @ts-ignore
+              lightboxVideo.pause();
+              // @ts-ignore
+              lightboxVideo.src = '';
+              lightboxImg.classList.remove('hidden');
+              // @ts-ignore
+              lightboxImg.src = mediaSrc;
             }
+            
+            if (typeof lightbox.showModal === 'function') {
+              // @ts-ignore
+              lightbox.showModal();
+            }
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
           }
         });
       });
@@ -192,6 +216,11 @@ const { project } = Astro.props;
         }
         lightbox.classList.add('hidden');
         document.body.style.overflow = '';
+        // Stop video playback on close
+        if (lightboxVideo && !lightboxVideo.paused) {
+           // @ts-ignore
+           lightboxVideo.pause();
+        }
       };
 
       if (closeBtn) closeBtn.addEventListener('click', closeModal);
