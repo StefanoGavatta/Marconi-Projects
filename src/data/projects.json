@@ -188,5 +188,23 @@
       "Gemini AI"
     ],
     "githubUrl": "https://github.com/Classi-di-Mauro-Longano/5ci-25-26-servizio-backend-rest-StefanoGavatta.git"
+  },
+    {
+    "id": "proj-5-4",
+    "name": "Marconi Projects",
+    "year": "5a",
+    "images": [
+        "/assets/projects/marc1.png",
+        "/assets/projects/marc2.png",
+        "/assets/projects/marc3.png"
+    ],
+    "category": "scolastico",
+    "status": "in corso",
+    "description": "Sito Web personale per la presentazione di progetti scolastici ed extrascolastici, con sezioni dedicate a esperienze lavorative, formazione, e contatti.",
+    "tools": [
+      "Astro",
+      "Tailwind CSS"
+    ],
+    "githubUrl": "https://github.com/StefanoGavatta/Marconi-Projects.git"
   }
 ]
