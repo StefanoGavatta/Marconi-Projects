@@ -1,0 +1,230 @@
+---
+import projectsData from '../data/projects.json';
+
+const years = ['3a', '4a', '5a'];
+---
+
+<div class="project-timeline-container">
+  <!-- FILTRI -->
+  <div class="flex flex-wrap gap-4 mb-12 justify-center bg-[#1e293b]/50 p-4 border border-blue-500/10 rounded-2xl">
+    <label class="flex items-center gap-3 cursor-pointer group">
+      <input type="checkbox" checked value="scolastico" class="filter-cb w-5 h-5 rounded border-gray-600 bg-gray-800 text-blue-500 focus:ring-blue-500 focus:ring-offset-gray-900 accent-blue-500" />
+      <span class="text-gray-300 group-hover:text-white transition-colors font-medium">Scolastici</span>
+    </label>
+    <label class="flex items-center gap-3 cursor-pointer group">
+      <input type="checkbox" checked value="extrascolastico" class="filter-cb w-5 h-5 rounded border-gray-600 bg-gray-800 text-blue-500 focus:ring-blue-500 focus:ring-offset-gray-900 accent-blue-500" />
+      <span class="text-gray-300 group-hover:text-white transition-colors font-medium">Extrascolastici</span>
+    </label>
+    <label class="flex items-center gap-3 cursor-pointer group">
+      <input type="checkbox" checked value="personale" class="filter-cb w-5 h-5 rounded border-gray-600 bg-gray-800 text-blue-500 focus:ring-blue-500 focus:ring-offset-gray-900 accent-blue-500" />
+      <span class="text-gray-300 group-hover:text-white transition-colors font-medium">Personali</span>
+    </label>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="relative max-w-2xl mx-auto mb-16 py-4 sticky top-20 z-30 bg-[#0f172a]/90 backdrop-blur-md">
+    <!-- Linea principale -->
+    <div class="absolute top-1/2 left-4 right-4 h-1 bg-gray-800 -translate-y-1/2 rounded"></div>
+    
+    <!-- Indicatore animato attivo -->
+    <div class="absolute top-1/2 left-4 right-4 h-1 pointer-events-none">
+      <div id="timeline-indicator" class="absolute top-1/2 left-[0%] w-5 h-5 bg-blue-500 rounded-full -translate-y-1/2 -translate-x-1/2 shadow-sm transition-all duration-500 ease-out z-10  border-2 border-white"></div>
+    </div>
+
+    <!-- Marker Anni -->
+    <div class="relative flex justify-between z-0 px-4">
+      {years.map((year, index) => (
+        <button 
+          class="timeline-btn relative flex flex-col items-center group"
+          data-target={`year-${year}`}
+          data-index={index}
+          type="button"
+        >
+          <div class="w-4 h-4 rounded-full bg-gray-700 border-2 border-[#1e293b] group-hover:bg-blue-400 transition-colors z-10"></div>
+          <span class="absolute top-6 text-sm font-bold text-gray-400 group-hover:text-blue-300 whitespace-nowrap bg-[#0f172a] px-2">Classe {year}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- SEZIONI ANNO e GRIGLIA PROGETTI -->
+  <div class="space-y-24 mt-12 pb-16">
+    {years.map(year => (
+      <section id={`year-${year}`} class="year-section scroll-mt-40 relative">
+        <!-- Section Header -->
+        <div class="flex items-center gap-4 mb-8">
+          <h3 class="text-3xl font-bold text-white">Classe {year}</h3>
+          <div class="h-px flex-grow bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+        </div>
+        
+        <!-- Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {projectsData.filter((p: any) => p.year === year).map((project: any) => (
+            <a 
+              href={`/project/${project.id}`} 
+              aria-label={`Vai al progetto ${project.name}`}
+              class="project-card block bg-[#1e293b] border border-blue-500/20 rounded-2xl overflow-hidden  hover:border-blue-500/50 hover:shadow-md transition-all duration-300 shadow-lg cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500" 
+              data-category={project.category}
+            >
+              <!-- Thumbnail Container -->
+              <div class="h-40 md:h-48 w-full bg-gray-800 relative overflow-hidden">
+                {project.images && project.images.length > 0 ? (
+                  <img src={project.images[0]} alt={`Anteprima del progetto ${project.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover group- transition-transform duration-500" />
+                ) : (
+                  <div class="w-full h-full flex items-center justify-center text-gray-600 bg-gray-800/50">Nessuna Immagine</div>
+                )}
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1e293b] via-transparent to-transparent opacity-80"></div>
+
+                <!-- Status badge -->
+                <div class="absolute top-3 right-3">
+                  {project.status === 'completato' ? (
+                    <span class="bg-blue-600 text-white text-xs px-2.5 py-1 rounded-md font-bold shadow-sm uppercase tracking-wider backdrop-blur-sm border border-blue-500">Completato</span>
+                  ) : (
+                    <span class="bg-transparent border border-gray-500 text-gray-300 text-xs px-2.5 py-1 rounded-md font-bold shadow-sm uppercase tracking-wider backdrop-blur-sm">In corso</span>
+                  )}
+                </div>
+              </div>
+              
+              <!-- Content -->
+              <div class="p-4 md:p-5 flex flex-col justify-between h-auto">
+                <span class="inline-block self-start px-2.5 py-0.5 bg-gray-700/60 border border-gray-600 text-gray-300 rounded text-[10px] font-bold uppercase tracking-widest mb-3">
+                  {project.category}
+                </span>
+                <h4 class="text-lg md:text-xl font-bold text-white mb-2 leading-tight group-hover:text-blue-400 transition-colors line-clamp-2">
+                  {project.name}
+                </h4>
+              </div>
+            </a>
+          ))}
+        </div>
+        
+        <!-- Empty State Fallback per i filtri (hidden by default) -->
+        <div class="empty-state hidden py-12 text-center border-2 border-dashed border-gray-800 rounded-2xl">
+          <p class="text-gray-500">Nessun progetto trovato con i filtri attuali per quest'anno.</p>
+        </div>
+      </section>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. GESTIONE FILTRI (Client-side)
+    const checkboxes = document.querySelectorAll<HTMLInputElement>('.filter-cb');
+    const cards = document.querySelectorAll<HTMLElement>('.project-card');
+    const sections = document.querySelectorAll<HTMLElement>('.year-section');
+
+    function updateFilters() {
+      // Ottieni categorie attive
+      const activeCategories = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+      // Aggiorna visibilità carte
+      cards.forEach(card => {
+        const category = card.dataset.category;
+        
+        if (activeCategories.includes(category as string)) {
+          card.style.display = 'block';
+          // Piccola dilazione per permettere al display:block di scattare prima dell'opacity
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.9)';
+          // Nascondi completamente dopo l'animazione
+          setTimeout(() => {
+            if (!activeCategories.includes(category as string)) {
+              card.style.display = 'none';
+            }
+          }, 300);
+        }
+      });
+
+      // Controlla gli Empty States (se non ci sono card visibili nell'anno corrente)
+      setTimeout(() => {
+        sections.forEach(section => {
+          const visibleCards = section.querySelectorAll('.project-card[style*="display: block"]');
+          const emptyState = section.querySelector('.empty-state') as HTMLElement;
+          if (visibleCards.length === 0 && cards.length > 0) {
+            if(emptyState) emptyState.style.display = 'block';
+          } else {
+            if(emptyState) emptyState.style.display = 'none';
+          }
+        });
+      }, 310);
+    }
+
+    // Inizializza listener filtri
+    checkboxes.forEach(cb => cb.addEventListener('change', updateFilters));
+    updateFilters(); // Setup iniziale rapido
+
+    // 2. TIMELINE SCROLL E INDICATORE
+    const timelineBtns = document.querySelectorAll<HTMLButtonElement>('.timeline-btn');
+    const indicator = document.getElementById('timeline-indicator');
+
+    // Click sui timeline marker
+    timelineBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const targetElement = document.getElementById(targetId as string);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Observer per aggiornare l'indicatore in base all'area visibile (Intersection Observer)
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -60% 0px', // Scatta quando la sezione riempie il centro
+      threshold: 0
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const activeBtn = document.querySelector<HTMLButtonElement>(`.timeline-btn[data-target="${id}"]`);
+          
+          if (activeBtn && indicator) {
+            const idx = parseInt(activeBtn.dataset.index as string);
+            const numBtns = timelineBtns.length;
+            // Calcolo: 0 -> 0%, 1 -> 50%, 2 -> 100%
+            const percentage = (idx / (numBtns - 1)) * 100;
+            indicator.style.left = `${percentage}%`;
+            
+            // Aggiorna estetica bottone (opzionale)
+            timelineBtns.forEach(b => {
+              const dot = b.querySelector('div');
+              const text = b.querySelector('span');
+              if(b === activeBtn) {
+                dot?.classList.add('bg-blue-400');
+                dot?.classList.remove('bg-gray-700');
+                text?.classList.add('text-blue-300');
+                text?.classList.remove('text-gray-400');
+              } else {
+                dot?.classList.remove('bg-blue-400');
+                dot?.classList.add('bg-gray-700');
+                text?.classList.remove('text-blue-300');
+                text?.classList.add('text-gray-400');
+              }
+            });
+          }
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(sec => scrollObserver.observe(sec));
+  });
+</script>
+
+<style>
+  /* CSS transition helpers for logic filter */
+  .project-card {
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  }
+</style>

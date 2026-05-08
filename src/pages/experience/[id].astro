@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import experiencesData from '../../data/experiences.json';
+
+export async function getStaticPaths() {
+  return experiencesData.map((exp) => ({
+    params: { id: exp.id },
+    props: { exp },
+  }));
+}
+
+const { exp } = Astro.props;
+---
+
+<BaseLayout title={`Esperienza in ${exp.company} - Portfolio`} description={`La mia esperienza come ${exp.role} presso ${exp.company}`} image={exp.logoUrl}>
+  <div class="py-12 ">
+    <!-- Back Button -->
+    <a href="/#esperienze" aria-label="Torna alle esperienze" class="inline-flex items-center text-gray-400 hover:text-blue-400 mb-8 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1">
+      <svg class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Torna alle esperienze
+    </a>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12">
+      <!-- Colonna Sinistra (Info) -->
+      <aside class="space-y-6">
+        <div class="bg-[#1e293b] border border-blue-500/20 rounded-2xl p-8 sticky top-24 text-center md:text-left hover:shadow-md transition-shadow">
+          <div class="w-32 h-32 mx-auto md:mx-0 bg-[#0f172a] border border-blue-500/30 rounded-2xl p-4 flex items-center justify-center mb-6 shadow-xl">
+            {exp.logoUrl ? (
+              <img src={exp.logoUrl} alt={`Logo ${exp.company}`} width="96" height="96" loading="lazy" decoding="async" class="w-full h-full object-contain" />
+            ) : (
+              <svg class="w-16 h-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            )}
+          </div>
+          
+          <h1 class="text-3xl font-bold text-white mb-2">{exp.company}</h1>
+          <h2 class="text-xl text-blue-400 font-medium mb-4">{exp.role}</h2>
+          
+          <div class="space-y-4 pt-6 border-t border-gray-800">
+            <div>
+              <p class="text-sm text-gray-500 uppercase tracking-wider mb-1">Periodo</p>
+              <p class="text-gray-300 font-medium">{exp.period}</p>
+            </div>
+            
+            <div>
+              <p class="text-sm text-gray-500 uppercase tracking-wider mb-1">Tipologia</p>
+              <span class="inline-block px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs font-semibold uppercase tracking-wider mt-1">
+                {exp.type}
+              </span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Colonna Destra (Tasks) -->
+      <main>
+        <div class="bg-[#1e293b] border border-blue-500/20 rounded-2xl p-8 backdrop-blur-md">
+          <div class="flex items-center gap-4 mb-8">
+            <h3 class="text-2xl font-bold text-white">Task Assegnati</h3>
+            <div class="h-1 w-16 bg-blue-500/50 rounded"></div>
+          </div>
+          
+          <ul class="space-y-6">
+            {exp.tasks.map((task) => (
+              <li class="flex items-start text-gray-300 group">
+                <div class="flex-shrink-0 mt-1 mr-4">
+                  <div class="w-2 h-2 rounded-full bg-blue-500  transition-transform shadow-sm"></div>
+                </div>
+                <span class="text-lg leading-relaxed">{task}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </main>
+    </div>
+  </div>
+</BaseLayout>
