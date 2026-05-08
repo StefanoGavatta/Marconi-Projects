@@ -116,7 +116,7 @@ const { project } = Astro.props;
         {project.images && project.images.length > 0 ? (
           project.images.map((imgUrl: string, index: number) => (
             <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-blue-500/20 group">
-              <img src={imgUrl} alt={`Schermata ${index + 1} del progetto ${project.name}`} width="1280" height="720" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 " />
+              <img src={imgUrl} alt={`Schermata ${index + 1} del progetto ${project.name}`} width="1280" height="720" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 lightbox-trigger cursor-pointer" />
               {index === 0 && (
                 <>
                   <!-- Overlay per la prima immagine (Copertina) -->
@@ -142,6 +142,66 @@ const { project } = Astro.props;
         )}
       </div>
 
+
     </div>
   </div>
+
+  <!-- Lightbox Modal -->
+  <dialog id="lightbox" class="fixed inset-0 z-[100] w-full h-full bg-black/90 backdrop-blur-sm p-0 m-0 border-none items-center justify-center hidden open:flex">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-2 z-50 bg-[#0f172a]/50" aria-label="Chiudi ingrandimento">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Immagine ingrandita" class="max-w-[95vw] max-h-[90vh] object-contain rounded-lg shadow-2xl" />
+  </dialog>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const triggers = document.querySelectorAll('.lightbox-trigger');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      if (!lightbox || !lightboxImg) return;
+
+      triggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function (e) {
+          // e.currentTarget is the element the listener is attached to
+          const el = e.currentTarget;
+          // Ensure it's an HTMLImageElement before using src
+          if (el && el.tagName && el.tagName.toLowerCase() === 'img') {
+            // @ts-ignore - runtime check above ensures safety
+            const imgSrc = el.src;
+            if (imgSrc) {
+              // @ts-ignore
+              lightboxImg.src = imgSrc;
+              if (typeof lightbox.showModal === 'function') {
+                // @ts-ignore
+                lightbox.showModal();
+              }
+              lightbox.classList.remove('hidden');
+              document.body.style.overflow = 'hidden';
+            }
+          }
+        });
+      });
+
+      var closeModal = function () {
+        if (typeof lightbox.close === 'function') {
+          // @ts-ignore
+          lightbox.close();
+        }
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+      };
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+      // Chiudi al click fuori dall'immagine (sul backdrop)
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) {
+          closeModal();
+        }
+      });
+    });
+  </script>
 </BaseLayout>

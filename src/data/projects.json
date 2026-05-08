@@ -13,10 +13,7 @@
       "HTML",
       "CSS"
     ],
-    "githubUrl": "https://github.com/Classi-di-Mauro-Longano/progetto-finale-interactive-landing-page-StefanoGavatta",
-    "collaborators": [
-        ""
-    ]
+    "githubUrl": "https://github.com/Classi-di-Mauro-Longano/progetto-finale-interactive-landing-page-StefanoGavatta"
   },
   {
     "id": "proj-4-1",
@@ -72,10 +69,8 @@
     "id": "proj-4-3",
     "name": "LanParty - Sviluppo Videoludico",
     "year": "4a",
-    "images": [
-      "/assets/projects/blog.jpg"
-    ],
-    "category": "personale",
+    "images": [],
+    "category": "extrascolastico",
     "status": "in corso",
     "description": "Evento Organizzato annualmente dal Marconi per la progettazione e sviluppo di un videogioco per l'intera durata dell'anno scolastico",
     "tools": [
@@ -99,71 +94,99 @@
       "Gabriele Pittui",
       "Ulsami Noor",
       "Simone Merlini"
-
     ]
-    
+  },
+  {
+    "id": "proj-4-4",
+    "name": "Pong con Raspberry Pi",
+    "year": "4a",
+    "images": [
+      "/assets/projects/Rasp1.png",
+      "/assets/projects/rasp2.png",
+      "/assets/projects/rasp3.png",
+      "/assets/projects/rasp4.png",
+      "/assets/projects/rasp5.jpeg"
+    ],
+    "category": "scolastico",
+    "status": "completato",
+    "description": "utilizzando due Rasberry Client (Raspberry 1): Esegue il gioco con pygame e invia punteggio e posizioni via TCP. Server (Raspberry 2): Riceve i dati con socket,li elabora, e li salva in un file.a",
+    "tools": [
+      "Raspberry Pi",
+      "Python",
+      "GPIO",
+      "PYGame"
+    ],
+    "githubUrl": "https://github.com/StefanoGavatta/progetto-autonomia.git",
+    "collaborators": [
+      "Oleksandr Kushnir"
+    ]
   },
   {
     "id": "proj-5-1",
-    "name": "Dashboard IoT per Sensori Arduino",
+    "name": "Clone Whatsapp",
     "year": "5a",
     "images": [
-      "/assets/projects/iot.jpg",
-      "/assets/projects/iot-charts.jpg"
+      "/assets/projects/whats.png",
+      "/assets/projects/whats2.png",
+      "/assets/projects/whats3.png"
     ],
     "category": "scolastico",
-    "status": "in corso",
-    "description": "Piattaforma e visualizzazione grafica per i dati di sensori IoT inviati da Arduino tramite MQTT.",
+    "status": "completato",
+    "description": "Applicaizione Web di messaggistica con funzionalità istantaneo di invio messaggi, gestione utenti, e visualizzazione in tempo reale delle conversazioni.",
     "tools": [
-      "Node.js",
-      "Express",
+      "Angualar",
+      "TypeScript",
       "Socket.io",
-      "Chart.js"
+      "html/css"
     ],
-    "githubUrl": "https://github.com/stefanogavatta/dashboard-iot",
+    "githubUrl": "https://github.com/StefanoGavatta/app-messaggistica.git",
     "collaborators": [
-      "Marco Bianchi",
-      "Luigi Verdi"
+      "Oleksandr Kushnir"
     ]
   },
   {
     "id": "proj-5-2",
-    "name": "Portfoglio Astro v4",
+    "name": "SmartFood Vision - Food Recognition App",
     "year": "5a",
     "images": [
-      "/assets/projects/portfolio.jpg"
+      "/assets/projects/vision1.png",
+      "/assets/projects/vision2.png",
+      "/assets/projects/vision3.png",
+      "/assets/projects/vision4.png",
+      "/assets/projects/vision5.png",
+      "/assets/projects/vision6.png"
     ],
-    "category": "personale",
+    "category": "scolastico",
     "status": "completato",
-    "description": "Il mio nuovo portfolio scolastico e professionale sviluppato utilizzando il nuovo framework Astro con Tailwind CSS.",
+    "description": "Applicazione che permette la scansione di alimenti tramite fotocamera, con riconoscimento basato su modelli di machine learning per identificare il cibo e fornire informazioni nutrizionali.",
     "tools": [
-      "Astro",
+      "React",
       "Tailwind CSS",
-      "TypeScript"
+      "TypeScript",
+      "Flask",
+      "Gemini AI",
+      "PostGreSQL"
     ],
-    "githubUrl": "https://github.com/stefanogavatta/astro-portfolio",
-    "demoUrl": "https://portfolio.stefanogavatta.dev"
+    "githubUrl": "https://github.com/classi-montagnipatrizia/autonomia-progetto-2q-stefano-jacopo-foodrecognition.git",
+    "collaborators": [
+      "Jacopo Zorza"
+    ]
   },
   {
     "id": "proj-5-3",
-    "name": "App Mobile 'SchoolScheduler'",
+    "name": "Gestionale Spese Personali - scansione Scontrini",
     "year": "5a",
-    "images": [
-      "/assets/projects/schoolapp.jpg",
-      "/assets/projects/schoolapp-2.jpg",
-      "/assets/projects/schoolapp-3.jpg"
-    ],
-    "category": "extrascolastico",
-    "status": "completato",
-    "description": "App mobile multipiattaforma per la gestione degli orari scolastici, compiti e interrogazioni.",
+    "images": [],
+    "category": "scolastico",
+    "status": "in corso",
+    "description": "App mobile e Desktop per la gestione delle spese personali, con funzionalità di scansione scontrini tramite fotocamera, riconoscimento dei prodotti",
     "tools": [
       "React Native",
-      "Expo",
-      "SQLite"
+      "HONO",
+      "zod",
+      "SQLlite",
+      "Gemini AI"
     ],
-    "githubUrl": "https://github.com/stefanogavatta/school-scheduler",
-    "collaborators": [
-      "Giulia Neri"
-    ]
+    "githubUrl": "https://github.com/Classi-di-Mauro-Longano/5ci-25-26-servizio-backend-rest-StefanoGavatta.git"
   }
 ]
