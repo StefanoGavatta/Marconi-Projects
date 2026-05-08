@@ -1,0 +1,104 @@
+[
+  {
+    "id": "proj-3-1",
+    "name": "Sito Vetrina Pizzeria",
+    "year": "3a",
+    "imageUrl": "/assets/projects/pizzeria.jpg",
+    "category": "scolastico",
+    "status": "completato",
+    "description": "Primo progetto web completo: un sito statico per una pizzeria con menu, contatti e mappa interattiva.",
+    "tools": ["HTML", "CSS", "JavaScript"],
+    "githubUrl": "https://github.com/mariorossi/pizzeria",
+    "demoUrl": "https://mariorossi.github.io/pizzeria"
+  },
+  {
+    "id": "proj-3-2",
+    "name": "Calcolatrice Scientifica Web",
+    "year": "3a",
+    "imageUrl": "/assets/projects/calcolatrice.jpg",
+    "category": "personale",
+    "status": "completato",
+    "description": "Una calcolatrice web ispirata al design di iOS con funzionalità scientifiche avanzate in Javascript.",
+    "tools": ["HTML", "Vanilla CSS", "JavaScript ES6"],
+    "githubUrl": "https://github.com/mariorossi/calcolatrice"
+  },
+  {
+    "id": "proj-3-3",
+    "name": "E-Commerce Semplificato",
+    "year": "3a",
+    "imageUrl": "/assets/projects/ecommerce3.jpg",
+    "category": "scolastico",
+    "status": "completato",
+    "description": "Simulazione di un negozio online per l'acquisto di libri, con carrello mantenuto in LocalStorage.",
+    "tools": ["HTML", "CSS Bootstrap", "JavaScript"],
+    "githubUrl": "https://github.com/mariorossi/ecommerce-js"
+  },
+  {
+    "id": "proj-4-1",
+    "name": "Software Gestione Magazzino",
+    "year": "4a",
+    "imageUrl": "/assets/projects/magazzino.jpg",
+    "category": "scolastico",
+    "status": "completato",
+    "description": "Applicativo web per la registrazione, ricerca e modifica dei prodotti di un magazzino tramite interfaccia backend in PHP.",
+    "tools": ["PHP", "MySQL", "HTML/CSS", "Bootstrap"],
+    "githubUrl": "https://github.com/mariorossi/gestione-magazzino"
+  },
+  {
+    "id": "proj-4-2",
+    "name": "Weather App React",
+    "year": "4a",
+    "imageUrl": "/assets/projects/weather.jpg",
+    "category": "extrascolastico",
+    "status": "completato",
+    "description": "Applicazione per consultare il meteo mondiale consumando l'API pubblica di OpenWeatherMap.",
+    "tools": ["React", "CSS Modules", "Fetch API"],
+    "githubUrl": "https://github.com/mariorossi/weather-react",
+    "demoUrl": "https://weather.mariorossi.dev"
+  },
+  {
+    "id": "proj-4-3",
+    "name": "Blog Personale Custom",
+    "year": "4a",
+    "imageUrl": "/assets/projects/blog.jpg",
+    "category": "personale",
+    "status": "in corso",
+    "description": "Motore minimale di blog scritto in PHP, con pannello di amministrazione e autenticazione lato server.",
+    "tools": ["PHP", "Vite", "Tailwind CSS", "MySQL"],
+    "githubUrl": "https://github.com/mariorossi/custom-blog"
+  },
+  {
+    "id": "proj-5-1",
+    "name": "Dashboard IoT per Sensori Arduino",
+    "year": "5a",
+    "imageUrl": "/assets/projects/iot.jpg",
+    "category": "scolastico",
+    "status": "in corso",
+    "description": "Piattaforma e visualizzazione grafica per i dati di sensori IoT inviati da Arduino tramite MQTT.",
+    "tools": ["Node.js", "Express", "Socket.io", "Chart.js"],
+    "githubUrl": "https://github.com/mariorossi/dashboard-iot"
+  },
+  {
+    "id": "proj-5-2",
+    "name": "Portfoglio Astro v4",
+    "year": "5a",
+    "imageUrl": "/assets/projects/portfolio.jpg",
+    "category": "personale",
+    "status": "completato",
+    "description": "Il mio nuovo portfolio scolastico e professionale sviluppato utilizzando il nuovo framework Astro con Tailwind CSS.",
+    "tools": ["Astro", "Tailwind CSS", "TypeScript"],
+    "githubUrl": "https://github.com/mariorossi/astro-portfolio",
+    "demoUrl": "https://portfolio.mariorossi.dev"
+  },
+  {
+    "id": "proj-5-3",
+    "name": "App Mobile 'SchoolScheduler'",
+    "year": "5a",
+    "imageUrl": "/assets/projects/schoolapp.jpg",
+    "category": "extrascolastico",
+    "status": "completato",
+    "description": "App mobile multipiattaforma per la gestione degli orari scolastici, compiti e interrogazioni.",
+    "tools": ["React Native", "Expo", "SQLite"],
+    "githubUrl": "https://github.com/mariorossi/school-scheduler"
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "years": [
+    {
+      "year": "1a-2a",
+      "institute": "Liceo Scientifico A. Einstein",
+      "address": "Scienze Applicate"
+    },
+    {
+      "year": "3a-5a",
+      "institute": "Istituto Tecnico Statale G. Marconi",
+      "address": "Informatica e Telecomunicazioni"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Cisco CCNA 1 - Introduction to Networks",
+      "year": "2024",
+      "type": "Networking"
+    },
+    {
+      "name": "Cambridge English: B2 First",
+      "year": "2025",
+      "type": "Lingue"
+    }
+  ]
+}

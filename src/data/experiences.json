@@ -1,0 +1,28 @@
+[
+  {
+    "id": "exp-1",
+    "company": "Tech Solutions S.R.L.",
+    "role": "Sviluppatore Web Junior",
+    "type": "alternanza",
+    "period": "Giugno 2024 - Luglio 2024",
+    "tasks": [
+      "Sviluppo interfacce utente responsive HTML/CSS",
+      "Creazione di script JavaScript per validazione form",
+      "Aggiornamento di record su database MySQL"
+    ],
+    "logoUrl": "/assets/logos/tech-solutions.png"
+  },
+  {
+    "id": "exp-2",
+    "company": "Web & App Agency",
+    "role": "Assistente Sviluppatore Frontend",
+    "type": "estiva",
+    "period": "Giugno 2025 - Agosto 2025",
+    "tasks": [
+      "Integrazione di API REST in applicazioni React",
+      "Gestione dello stato tramite Redux",
+      "Ottimizzazione delle performance e accessibilità (a11y)"
+    ],
+    "logoUrl": "/assets/logos/web-app-agency.png"
+  }
+]
