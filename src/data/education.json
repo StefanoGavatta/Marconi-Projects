@@ -2,12 +2,12 @@
   "years": [
     {
       "year": "1a-2a",
-      "institute": "Liceo Scientifico A. Einstein",
+      "institute": "Istituto Tecnico G. Floriani, Riva del Garda",
       "address": "Scienze Applicate"
     },
     {
       "year": "3a-5a",
-      "institute": "Istituto Tecnico Statale G. Marconi",
+      "institute": "Istituto Tecnico G. Marconi",
       "address": "Informatica e Telecomunicazioni"
     }
   ],
@@ -21,6 +21,11 @@
       "name": "Cambridge English: B2 First",
       "year": "2025",
       "type": "Lingue"
+    },
+    {
+      "name": "Primo Soccorso - Corso Base",
+      "year": "2026",
+      "type": "Primo Soccorso"
     }
   ]
 }

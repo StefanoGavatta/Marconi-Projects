@@ -1,86 +1,107 @@
 [
   {
     "id": "proj-3-1",
-    "name": "Sito Vetrina Pizzeria",
+    "name": "Primo Sito Web Statico",
     "year": "3a",
     "images": [
-      "/assets/projects/pizzeria.jpg",
-      "/assets/projects/pizzeria-2.jpg"
+      "/assets/projects/cthulhu.png"
     ],
     "category": "scolastico",
     "status": "completato",
-    "description": "Primo progetto web completo: un sito statico per una pizzeria con menu, contatti e mappa interattiva.",
-    "tools": ["HTML", "CSS", "JavaScript"],
-    "githubUrl": "https://github.com/mariorossi/pizzeria",
-    "demoUrl": "https://mariorossi.github.io/pizzeria"
-  },
-  {
-    "id": "proj-3-2",
-    "name": "Calcolatrice Scientifica Web",
-    "year": "3a",
-    "images": [
-      "/assets/projects/calcolatrice.jpg"
+    "description": "Primo progetto svolto per la materia di TPSIT ",
+    "tools": [
+      "HTML",
+      "CSS"
     ],
-    "category": "personale",
-    "status": "completato",
-    "description": "Una calcolatrice web ispirata al design di iOS con funzionalità scientifiche avanzate in Javascript.",
-    "tools": ["HTML", "Vanilla CSS", "JavaScript ES6"],
-    "githubUrl": "https://github.com/mariorossi/calcolatrice"
-  },
-  {
-    "id": "proj-3-3",
-    "name": "E-Commerce Semplificato",
-    "year": "3a",
-    "images": [
-      "/assets/projects/ecommerce3.jpg",
-      "/assets/projects/ecommerce3-checkout.jpg"
-    ],
-    "category": "scolastico",
-    "status": "completato",
-    "description": "Simulazione di un negozio online per l'acquisto di libri, con carrello mantenuto in LocalStorage.",
-    "tools": ["HTML", "CSS Bootstrap", "JavaScript"],
-    "githubUrl": "https://github.com/mariorossi/ecommerce-js"
+    "githubUrl": "https://github.com/Classi-di-Mauro-Longano/progetto-finale-interactive-landing-page-StefanoGavatta",
+    "collaborators": [
+        ""
+    ]
   },
   {
     "id": "proj-4-1",
-    "name": "Software Gestione Magazzino",
+    "name": "Game Pulse - Gestionale Videogiochi",
     "year": "4a",
     "images": [
-      "/assets/projects/magazzino.jpg"
+      "/assets/projects/game-pulse1.png",
+      "/assets/projects/game-pulse2.png",
+      "/assets/projects/game-pulse3.png"
     ],
     "category": "scolastico",
     "status": "completato",
-    "description": "Applicativo web per la registrazione, ricerca e modifica dei prodotti di un magazzino tramite interfaccia backend in PHP.",
-    "tools": ["PHP", "MySQL", "HTML/CSS", "Bootstrap"],
-    "githubUrl": "https://github.com/mariorossi/gestione-magazzino"
+    "description": "Gestionale e Database per la visualizzazione di una collezione personale di videogiochi, con funzionalità di ricerca, filtri e statistiche.",
+    "tools": [
+      "Angular",
+      "TypeScript",
+      "Bootstrap",
+      "html/css"
+    ],
+    "githubUrl": "https://github.com/Classi-di-Andrea-Trentini/progetto-secondo-quadrimestre-gavatta-kushnir-lutteri-zorza.git",
+    "collaborators": [
+      "Oleksandr Kushnir",
+      "Jacopo Zorza",
+      "Gabriel Lutteri"
+    ]
   },
   {
     "id": "proj-4-2",
-    "name": "Weather App React",
+    "name": "Progetto MaDe",
     "year": "4a",
     "images": [
-      "/assets/projects/weather.jpg",
-      "/assets/projects/weather-dark.jpg"
+      "/assets/projects/MaDe1.png",
+      "/assets/projects/MaDe2.png",
+      "/assets/projects/MaDe3.png",
+      "/assets/projects/MaDe4.png"
     ],
     "category": "extrascolastico",
     "status": "completato",
-    "description": "Applicazione per consultare il meteo mondiale consumando l'API pubblica di OpenWeatherMap.",
-    "tools": ["React", "CSS Modules", "Fetch API"],
-    "githubUrl": "https://github.com/mariorossi/weather-react",
-    "demoUrl": "https://weather.mariorossi.dev"
+    "description": "Sito Web presentato per il progetto Marconi-Depero con richieste API per la scelta della scuola superiore, con filtri per indirizzo di studio.",
+    "tools": [
+      "Angular",
+      "Bootstrap",
+      "TypeScript",
+      "html/css"
+    ],
+    "githubUrl": "https://github.com/StefanoGavatta/Progetto-MaDe.git",
+    "collaborators": [
+      "Oleksandr Kushnir",
+      "DePero??"
+    ]
   },
   {
     "id": "proj-4-3",
-    "name": "Blog Personale Custom",
+    "name": "LanParty - Sviluppo Videoludico",
     "year": "4a",
     "images": [
       "/assets/projects/blog.jpg"
     ],
     "category": "personale",
     "status": "in corso",
-    "description": "Motore minimale di blog scritto in PHP, con pannello di amministrazione e autenticazione lato server.",
-    "tools": ["PHP", "Vite", "Tailwind CSS", "MySQL"],
-    "githubUrl": "https://github.com/mariorossi/custom-blog"
+    "description": "Evento Organizzato annualmente dal Marconi per la progettazione e sviluppo di un videogioco per l'intera durata dell'anno scolastico",
+    "tools": [
+      "Godot Engine",
+      "GDScript",
+      "Angular",
+      "TypeScript",
+      "html/css",
+      "Figma",
+      "FLstudio",
+      "altro..."
+    ],
+    "githubUrl": "https://github.com/LanParty-2025-2026/gioco.git",
+    "collaborators": [
+      "Oleksandr Kushnir",
+      "Martino Parisi",
+      "Anita Borges Hermel",
+      "Michele Piamarta", 
+      "Francesco Roccabruna",
+      "Giacomo Masiero",
+      "Gabriele Pittui",
+      "Ulsami Noor",
+      "Simone Merlini"
+
+    ]
+    
   },
   {
     "id": "proj-5-1",
@@ -93,8 +114,17 @@
     "category": "scolastico",
     "status": "in corso",
     "description": "Piattaforma e visualizzazione grafica per i dati di sensori IoT inviati da Arduino tramite MQTT.",
-    "tools": ["Node.js", "Express", "Socket.io", "Chart.js"],
-    "githubUrl": "https://github.com/mariorossi/dashboard-iot"
+    "tools": [
+      "Node.js",
+      "Express",
+      "Socket.io",
+      "Chart.js"
+    ],
+    "githubUrl": "https://github.com/stefanogavatta/dashboard-iot",
+    "collaborators": [
+      "Marco Bianchi",
+      "Luigi Verdi"
+    ]
   },
   {
     "id": "proj-5-2",
@@ -106,9 +136,13 @@
     "category": "personale",
     "status": "completato",
     "description": "Il mio nuovo portfolio scolastico e professionale sviluppato utilizzando il nuovo framework Astro con Tailwind CSS.",
-    "tools": ["Astro", "Tailwind CSS", "TypeScript"],
-    "githubUrl": "https://github.com/mariorossi/astro-portfolio",
-    "demoUrl": "https://portfolio.mariorossi.dev"
+    "tools": [
+      "Astro",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "githubUrl": "https://github.com/stefanogavatta/astro-portfolio",
+    "demoUrl": "https://portfolio.stefanogavatta.dev"
   },
   {
     "id": "proj-5-3",
@@ -122,7 +156,14 @@
     "category": "extrascolastico",
     "status": "completato",
     "description": "App mobile multipiattaforma per la gestione degli orari scolastici, compiti e interrogazioni.",
-    "tools": ["React Native", "Expo", "SQLite"],
-    "githubUrl": "https://github.com/mariorossi/school-scheduler"
+    "tools": [
+      "React Native",
+      "Expo",
+      "SQLite"
+    ],
+    "githubUrl": "https://github.com/stefanogavatta/school-scheduler",
+    "collaborators": [
+      "Giulia Neri"
+    ]
   }
 ]

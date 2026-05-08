@@ -50,6 +50,24 @@ const { project } = Astro.props;
           <p>{project.description}</p>
         </div>
 
+
+        <!-- Collaboratori -->
+        {project.collaborators && project.collaborators.length > 0 && (
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold text-white mb-4">Collaboratori</h3>
+            <div class="flex flex-wrap gap-2">
+              {project.collaborators.map((collab: string) => (
+                <div class="flex items-center gap-2 px-3 py-1.5 bg-[#0f172a] rounded-full border border-gray-700">
+                  <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold text-white uppercase">
+                    {collab.charAt(0)}
+                  </div>
+                  <span class="text-sm text-gray-300 font-medium whitespace-nowrap">{collab}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        
         <!-- Strumenti Utilizzati -->
         <div class="mb-8">
           <h3 class="text-xl font-semibold text-white mb-4">Strumenti Utilizzati</h3>
